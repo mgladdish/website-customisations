@@ -69,7 +69,9 @@
         margin-left: var(--gutter);
       }
 
-
+      .subtext, .subline {
+        font-size: .75rem;
+      }
 
       #hnmain {
         width: 100%;
