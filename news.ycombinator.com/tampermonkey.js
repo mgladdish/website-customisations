@@ -4,6 +4,8 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       Martin Gladdish
+// @downloadURL  https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
+// @supportURL   https://github.com/mgladdish/website-customisations
 // @match        https://news.ycombinator.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ycombinator.com
 // @grant        GM_addStyle
