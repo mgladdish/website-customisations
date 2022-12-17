@@ -2,6 +2,7 @@ name: news.ycombinator.com ci
 on:
   push:
     paths:
+      - '.github/workflows/ci.yml'
       - 'news.ycombinator.com/**'
 
 defaults:
