@@ -32,5 +32,5 @@ jobs:
         if: success() || failure()    # run this step even if previous step failed
         with:
           name: JEST Tests
-          path: target/test-reports/jest-*.xml
+          path: news.ycombinator.com/target/test-reports/jest-*.xml
           reporter: jest-junit
