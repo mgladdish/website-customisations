@@ -102,8 +102,13 @@ const tampermonkeyScript = function() {
       /* Custom styles added via javascript */
 
       .downvoted {
-        border-left: 3px solid red;
-        padding-left: 6px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 3px;
+        padding: 6px;
+      }
+      .downvoted .commtext {
+        color: black;
+        font-size: smaller;
       }
     </style>`);
 

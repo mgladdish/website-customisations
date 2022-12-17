@@ -1,4 +1,4 @@
-const common = require('./common');
+const common = require('./helpers/common');
 
 describe('https://news.ycombinator.com/news', () => {
 
