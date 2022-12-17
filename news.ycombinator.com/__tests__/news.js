@@ -45,4 +45,12 @@ describe('https://news.ycombinator.com/news', () => {
     expect(oldNumberVisibility).toMatch('inline');
     expect(newNumberVisibility).toMatch('none');
   })
+
+  it('should make item subheading more readable', async() => {
+    const oldSubheadingFontSize = await getCssProperty(page, '.subline', 'font-size');
+    const newSubheadingFontSize = await getCssProperty(newHomepage, '.subline', 'font-size');
+
+    expect(oldSubheadingFontSize).toMatch('9.33333px');
+    expect(newSubheadingFontSize).toMatch('12px');
+  })
 });
