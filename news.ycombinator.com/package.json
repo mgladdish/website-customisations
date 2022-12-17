@@ -6,7 +6,7 @@
     "puppeteer": "^19.4.0"
   },
   "scripts": {
-    "test": "jest --reporters=default --reporters=jest-Junit"
+    "test": "jest --reporters=default --reporters=jest-junit"
   },
   "jest-junit": {
     "outputDirectory": "target/test-reports",
