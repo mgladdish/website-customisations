@@ -1,11 +1,14 @@
-# news.ycominator.com
+# news.ycombinator.com
 
 A Tampermonkey script to make reading Hacker News more bearable.
 
-'normal' Hacker News homepage:
+This isn't an attempt to make Hacker News into something it isn't, or even fix up the html to make it accessible or play nicely with reader mode. 
+It's just a tweak of the exising site, trying to keep the feel as close to the original as possible whilst fixing the biggest annoyances that make it hard to use and read. 
+
+## 'normal' Hacker News homepage:
 ![Hacker News homepage before](docs/news-before.png)
 
-With this userscript enabled:
+## With this userscript enabled:
 ![Hacker News homepage after](docs/news-after.png)
 
 # How to install
