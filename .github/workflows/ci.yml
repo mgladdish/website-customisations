@@ -1,5 +1,10 @@
-name: CI
+name: news.ycombinator.com ci
 on: push
+
+defaults:
+  run:
+    working-directory: news.ycombinator.com
+
 jobs:
   build:
     runs-on: ubuntu-latest
