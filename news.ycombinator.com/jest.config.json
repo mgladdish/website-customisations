@@ -1,4 +1,4 @@
 {
   "preset": "jest-puppeteer",
-  "testPathIgnorePatterns": ["helpers"]
+  "testPathIgnorePatterns": ["helpers", "resources"]
 }
