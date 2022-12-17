@@ -4,12 +4,11 @@
 // @version      6
 // @description  Make Hacker News more legible
 // @author       Martin Gladdish
-// @downloadURL  https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.jshttps://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
-// @updateURL    https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.jshttps://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
+// @downloadURL  https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
+// @updateURL    https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
 // @supportURL   https://github.com/mgladdish/website-customisations
 // @match        https://news.ycombinator.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ycombinator.com
-// @grant        GM_addStyle
 // ==/UserScript==
 
 const tampermonkeyScript = function() {
