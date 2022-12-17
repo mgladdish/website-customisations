@@ -28,4 +28,13 @@ describe('https://news.ycombinator.com/news', () => {
     const newFontSize = await getCssProperty(newHomepage, '.titleline', 'font-size');
     expect(newFontSize).toMatch('16px');
   })
+
+  it('should make the orange top menu full width', async() => {
+    const windowWidth = await page.evaluate(() => window.outerWidth);
+    const oldMenuWidth = await getCssProperty(page, '#hnmain', 'width');
+    const newMenuWidth = await getCssProperty(newHomepage, '#hnmain', 'width');
+
+    expect(oldMenuWidth).not.toMatch(newMenuWidth);
+    expect(newMenuWidth).toMatch(`${windowWidth}px`);
+  })
 });
