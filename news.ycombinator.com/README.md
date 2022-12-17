@@ -1,5 +1,7 @@
 # news.ycombinator.com
 
+![Build status badge for news.ycombinator.com](https://github.com/mgladdish/website-customisations/actions/workflows/ci.yml/badge.svg)
+
 A Tampermonkey script to make reading Hacker News more bearable.
 
 This isn't an attempt to make Hacker News into something it isn't, or even fix up the html to make it accessible or play nicely with reader mode. 
