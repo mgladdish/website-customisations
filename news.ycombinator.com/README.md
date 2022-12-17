@@ -12,6 +12,6 @@ With this userscript enabled:
 
 1. Install https://www.tampermonkey.net/
 2. Select 'create a new script' from tampermonkey's plugin
-3. Paste the raw contents of [tampermonkey.js] into the editor
+3. Paste the raw contents of [tampermonkey.js](https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js) into the editor
 4. Save.
 5. Open https://news.ycombinator.com in your browser and it should look much better!
