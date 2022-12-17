@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      with:
+        node-version: 19.2.0
+        cache: 'npm'
+        cache-dependency-path: news.ycombinator.com/package-lock.json
 
       - name: Install modules
         run: npm ci
