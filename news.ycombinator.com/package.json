@@ -1,10 +1,20 @@
 {
   "devDependencies": {
     "jest": "^29.3.1",
+    "jest-junit": "^15.0.0",
     "jest-puppeteer": "^6.2.0",
     "puppeteer": "^19.4.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --reporters=default --reporters=jest-Junit"
+  },
+  "jest-junit": {
+    "outputDirectory": "target/test-reports",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   }
 }
