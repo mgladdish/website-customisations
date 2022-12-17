@@ -17,7 +17,9 @@ const tampermonkeyScript = function() {
     document.head.insertAdjacentHTML("beforeend", `<style>
       :root {
         --colour-hn-orange: #ff6600;
+        --colour-hn-orange-pale: rgba(255, 102, 0, 0.05);
         --gutter: 0.5rem;
+        --border-radius: 3px;
       }
 
       /* Reset font everywhere */
@@ -95,7 +97,7 @@ const tampermonkeyScript = function() {
       input, textarea {
         background-color: white;
         border: 2px solid var(--colour-hn-orange);
-        border-radius: 3px;
+        border-radius: var(--border-radius);
       }
 
 
@@ -103,12 +105,20 @@ const tampermonkeyScript = function() {
 
       .downvoted {
         background-color: rgb(245, 245, 245);
-        border-radius: 3px;
+        border-radius: var(--border-radius);
         padding: 6px;
       }
       .downvoted .commtext {
         color: black;
         font-size: smaller;
+      }
+      
+      .quote {
+        border-left: 3px solid var(--colour-hn-orange);
+        padding: 6px 6px 6px 9px;
+        font-style: italic;
+        background-color: var(--colour-hn-orange-pale);
+        border-radius: var(--border-radius);
       }
     </style>`);
 
@@ -116,6 +126,29 @@ const tampermonkeyScript = function() {
     comments.forEach(e => {
         if (!e.classList.contains('c00')) {
             e.parentElement.classList.add('downvoted');
+        }
+    });
+
+    let node = null;
+    let nodes = [];
+    const ps = document.evaluate("//p[starts-with(., '>')]", document.body)
+    while (node = ps.iterateNext()) {
+        nodes.push(node);
+    }
+    const spans = document.evaluate("//span[starts-with(., '>')]", document.body)
+    while (node = spans.iterateNext()) {
+        nodes.push(node);
+    }
+    nodes.forEach((n) => {
+        const textNode = Array.from(n.childNodes).find((n) => n.nodeType === Node.TEXT_NODE);
+        if (textNode) {
+            const p = document.createElement('p');
+            p.classList.add('quote');
+            p.innerText = textNode.data.replace(">", "");
+            n.firstChild.replaceWith(p);
+        } else {
+            n.classList.add('quote');
+            n.innerText = n.innerText.replace(">", "");
         }
     });
 }

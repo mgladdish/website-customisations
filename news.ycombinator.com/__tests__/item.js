@@ -37,6 +37,24 @@ describe('https://news.ycombinator.com/item', () => {
     })
 
     it('should add a rounded orange border to input elements', async () => {
+        const borderRadius = await common.getCssProperty(newItempage, 'input', 'border-radius');
+        expect(borderRadius).toMatch('3px');
+    })
 
+    it('should detect quotes and strip the marker char `>`', async () => {
+        let parentId = "[id='34011652']";
+        const newHtml = await newItempage.$eval(`${parentId} .quote`, (e) => e.innerHTML);
+        const oldHtml = await page.$eval(`${parentId} .commtext`, (e) => e.firstChild.data);
+        expect(oldHtml).toEqual(expect.stringMatching('^>'));
+        expect(newHtml).toEqual(expect.not.stringMatching('^>'));
+    })
+
+    it('should format quotes when text starts with a >', async () => {
+        let selector = "[id='34011652'] .quote";
+
+        const quoteStyle = await common.getCssProperty(newItempage, selector, 'font-style');
+        expect(quoteStyle).toMatch("italic");
+        const quoteBackgroundColour = await common.getCssProperty(newItempage, selector, 'background-color');
+        expect(quoteBackgroundColour).toMatch('rgba(255, 102, 0, 0.05)');
     })
 })

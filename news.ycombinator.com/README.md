@@ -7,11 +7,33 @@ A Tampermonkey script to make reading Hacker News more bearable.
 This isn't an attempt to make Hacker News into something it isn't, or even fix up the html to make it accessible or play nicely with reader mode. 
 It's just a tweak of the exising site, trying to keep the feel as close to the original as possible whilst fixing the biggest annoyances that make it hard to use and read. 
 
-## 'normal' Hacker News homepage:
+## Features
+
+* Larger fonts so its legible at standard zoom level
+* Menu bar is full width
+* Some unnecessary cruft hidden (e.g. numbers next to headings on the homepage)
+* downvoted comments no longer light gray text and hard to read. Instead:
+  * black text
+  * faint grey background
+  * smaller font size
+* some custom rending of formatting conventions
+  * Leading `>` treated as a quote:
+    * text node wrapped in a `<p>`
+    * hn orange left border
+    * faint orange background
+    * italicised text
+
+## 'normal' Hacker News homepage
 ![Hacker News homepage before](docs/news-before.png)
 
 ## With this userscript enabled:
 ![Hacker News homepage after](docs/news-after.png)
+
+## 'normal' comments page
+![Hacker News comments before](docs/item-before.png)
+
+## Comments with this script enabled
+![Hacker News homepage before](docs/item-after.png)
 
 # How to install
 
