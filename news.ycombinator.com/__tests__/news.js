@@ -37,4 +37,12 @@ describe('https://news.ycombinator.com/news', () => {
     expect(oldMenuWidth).not.toMatch(newMenuWidth);
     expect(newMenuWidth).toMatch(`${windowWidth}px`);
   })
+
+  it('should hide numbers from item titles', async() => {
+    const oldNumberVisibility = await getCssProperty(page, '.rank', 'display');
+    const newNumberVisibility = await getCssProperty(newHomepage, '.rank', 'display');
+
+    expect(oldNumberVisibility).toMatch('inline');
+    expect(newNumberVisibility).toMatch('none');
+  })
 });
