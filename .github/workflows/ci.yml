@@ -21,7 +21,7 @@ jobs:
         run: npm test -- --ci
 
       - name: Bump version number
-        run: sed "/^\/\/ @version/c\// @version      $GITHUB_RUN_NUMBER" tampermonkey.js > tampermonkey.js
+        run: sed -i "/^\/\/ @version/c\// @version      $GITHUB_RUN_NUMBER" tampermonkey.js
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
