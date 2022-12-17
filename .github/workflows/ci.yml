@@ -1,8 +1,8 @@
 name: news.ycombinator.com ci
 on:
   push:
-#    paths:
-#      - 'news.ycombinator.com/**'
+    paths:
+      - 'news.ycombinator.com/**'
 
 defaults:
   run:
