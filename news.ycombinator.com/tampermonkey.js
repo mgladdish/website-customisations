@@ -2,7 +2,7 @@
 // @name         Hacker News
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  Make Hacker News more legible
 // @author       Martin Gladdish
 // @downloadURL  https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.jshttps://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
 // @updateURL    https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.jshttps://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
@@ -12,13 +12,10 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-
-
-(function() {
+const tampermonkeyScript = function() {
     'use strict';
 
-    GM_addStyle(`
-
+    document.head.insertAdjacentHTML("beforeend", `<style>
       :root {
         --colour-hn-orange: #ff6600;
         --gutter: 0.5rem;
@@ -109,7 +106,7 @@
         border-left: 3px solid red;
         padding-left: 6px;
       }
-    `);
+    </style>`);
 
     const comments = document.querySelectorAll('.commtext');
     comments.forEach(e => {
@@ -117,4 +114,6 @@
             e.parentElement.classList.add('downvoted');
         }
     });
-})();
+}
+
+tampermonkeyScript();
