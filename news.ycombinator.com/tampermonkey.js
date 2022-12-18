@@ -103,9 +103,13 @@ const tampermonkeyScript = function() {
       .comment, .toptext {
         max-width: 40em;
       }
-      .toptext {
+      .toptext, a, a:visited {
         color: black;
       }
+      a:hover {
+        text-decoration: underline;
+      }
+      
 
       input {
         padding: var(--gutter);
