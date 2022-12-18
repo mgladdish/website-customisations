@@ -179,7 +179,7 @@ const tampermonkeyScript = function() {
         }
     });
 
-    const addComment = document.querySelector("html[op='item'] .fatitem tr:nth-of-type(4)");
+    const addComment = document.querySelector("html[op='item'] .fatitem tr:last-of-type");
     if (addComment) {
         addComment.classList.add('hidden');
         const showComment = document.createElement('tr');
