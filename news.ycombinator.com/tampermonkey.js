@@ -40,27 +40,33 @@ const tampermonkeyScript = function() {
         font-size: 1rem;
       }
 
-      html[op='news'] .votelinks, html[op='news'] .title, .fatitem .votelinks {
+      .votelinks, html[op='news'] .title {
         vertical-align: inherit;
+      }
+      
+      .comment-tree .votelinks, html[op='threads' .votelinks] {
+        vertical-align: top;
       }
 
       span.titleline {
-        display: block;
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-top: var(--gutter);
         margin-bottom: var(--gutter);
+        display: block;
       }
-
-      html[op='news'] span.titleline {
-        font-size: 1rem;
+      
+      html[op='item'] span.titleline {
+        font-size: 1.2rem;
       }
 
       .rank {
         display: none
       }
 
-      html[op='news'] #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1)  {
-        margin-left: var(--gutter);
+      #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
+        html[op='front'] #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2),
+        html[op='show']  #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) {
+         margin-left: var(--gutter);
       }
 
       .sitebit.comhead {
