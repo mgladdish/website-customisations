@@ -44,7 +44,9 @@ const tampermonkeyScript = function() {
         vertical-align: inherit;
       }
       
-      .comment-tree .votelinks, html[op='threads' .votelinks] {
+      .comment-tree .votelinks, 
+        html[op='threads'] .votelinks, 
+        html[op='newcomments'] .votelinks {
         vertical-align: top;
       }
 
