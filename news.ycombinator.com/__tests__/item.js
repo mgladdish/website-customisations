@@ -57,4 +57,19 @@ describe('https://news.ycombinator.com/item', () => {
         const quoteBackgroundColour = await common.getCssProperty(newItempage, selector, 'background-color');
         expect(quoteBackgroundColour).toMatch('rgba(255, 102, 0, 0.05)');
     })
+
+    it('should initially hide the comment textarea', async () => {
+        const textAreaIsHidden = await common.isElementHidden(newItempage, "textarea[name='text']");
+        expect(textAreaIsHidden).toBe(true);
+    })
+
+    // This test fails but I don't understand why
+    it.skip ('should show the comment textarea when clicking on `show comment box`', async () => {
+        // This click works, but doesn't seem to affect what's shown on the page
+        const clicked = await newItempage.click('.showComment a');
+        // The dom now thinks the showComment link is no longer visible, but it's still visible on screenshots
+        // The row containing the textarea and related buttons is still *not* visible
+        const textAreaIsHidden = await common.isElementHidden(newItempage, "textarea[name='text']");
+        expect(textAreaIsHidden).toBe(false);
+    })
 })

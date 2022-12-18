@@ -20,3 +20,7 @@ exports.loadWithAndWithoutUserscript = async (pageWithScript, pageWithoutScript,
 
     await this.injectTampermonkeyScript(pageWithScript);
 }
+
+exports.isElementHidden = (page, selector) => {
+    return page.$eval(selector, (e) => e.offsetParent === null);
+}

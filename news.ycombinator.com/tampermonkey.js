@@ -101,12 +101,14 @@ const tampermonkeyScript = function() {
       input {
         padding: var(--gutter);
       }
-
       input, textarea {
         background-color: white;
         border: 2px solid var(--colour-hn-orange);
         border-radius: var(--border-radius);
       }
+      input[type='button'] {
+        cursor: pointer;
+      }   
 
 
       /* Custom styles added via javascript */
@@ -128,6 +130,19 @@ const tampermonkeyScript = function() {
         background-color: var(--colour-hn-orange-pale);
         border-radius: var(--border-radius);
       }
+      
+      .hidden {
+        display: none;
+      }
+
+      .showComment a, .hideComment, .hideComment:link, .hideComment:visited {
+        color: var(--colour-hn-orange);
+        text-decoration: underline;
+      }
+      .hideComment {
+        margin-left: var(--gutter);
+      }
+
     </style>`);
 
     const comments = document.querySelectorAll('.commtext');
@@ -159,6 +174,36 @@ const tampermonkeyScript = function() {
             n.innerText = n.innerText.replace(">", "");
         }
     });
+
+    const addComment = document.querySelector("html[op='item'] .fatitem tr:nth-of-type(4)");
+    if (addComment) {
+        addComment.classList.add('hidden');
+        const showComment = document.createElement('tr');
+        showComment.innerHTML = `
+           <td colspan='2'></td>
+           <td>
+             <a href='#'>show comment box</a>
+           </td>
+        `;
+        showComment.classList.add('showComment');
+        showComment.querySelector('a').addEventListener('click', (e) => {
+            showComment.classList.toggle('hidden');
+            addComment.classList.toggle('hidden');
+        });
+        addComment.parentNode.insertBefore(showComment, addComment);
+
+        const hideComment = document.createElement('a');
+        hideComment.setAttribute('href', '#');
+        hideComment.innerText = 'hide comment box';
+        hideComment.classList.add('hideComment');
+        hideComment.addEventListener('click', (e) => {
+            showComment.classList.toggle('hidden');
+            addComment.classList.toggle('hidden');
+        });
+
+        const commentForm = document.querySelector("form[action='comment']");
+        commentForm.append(hideComment);
+    }
 }
 
 tampermonkeyScript();
