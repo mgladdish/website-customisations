@@ -44,9 +44,9 @@ const tampermonkeyScript = function() {
         vertical-align: inherit;
       }
       
-      .comment-tree .votelinks, 
-        html[op='threads'] .votelinks, 
-        html[op='newcomments'] .votelinks {
+      .comment-tree .votelinks,
+        html[op='threads'] .votelinks,
+        html[op='newcomments'] .votelinks{
         vertical-align: top;
       }
 
@@ -65,9 +65,13 @@ const tampermonkeyScript = function() {
         display: none
       }
 
-      #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
-        html[op='front'] #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2),
-        html[op='show']  #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) {
+      html[op='news']        #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
+      html[op='newest']      #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
+      html[op='ask']         #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
+      html[op='newcomments'] #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1),
+      html[op='shownew']     #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(1), 
+      html[op='front']       #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2),
+      html[op='show']        #hnmain > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) {
          margin-left: var(--gutter);
       }
 
