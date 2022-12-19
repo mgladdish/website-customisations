@@ -9,6 +9,7 @@
 // @supportURL   https://github.com/mgladdish/website-customisations
 // @match        https://news.ycombinator.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ycombinator.com
+// @license      MIT
 // ==/UserScript==
 
 const tampermonkeyScript = function() {
