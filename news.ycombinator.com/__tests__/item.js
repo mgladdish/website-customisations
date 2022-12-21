@@ -62,9 +62,16 @@ describe('https://news.ycombinator.com/item', () => {
         const singleItemPage = await browser.newPage();
         await common.loadPageWithUserscript(singleItemPage, 'resources/item-singlecomment.html');
 
-        let selector = "[id='34072393'] .quote";
-        const quoteContent = await singleItemPage.$eval(selector, (e) => e.innerHTML);
+        const quoteContent = await singleItemPage.$eval("[id='34072393'] .quote", (e) => e.innerHTML);
         expect(quoteContent).toMatch("The estimates seem a bit high, or perhaps unbalanced from book to book. The Count of Monte Cristo is slated for 208 days at twenty minutes per day!")
+    })
+
+    it('should handle when quote indicators have a newline just before them', async () => {
+        const newlineExamplePage = await browser.newPage();
+        await common.loadPageWithUserscript(newlineExamplePage, 'resources/item-quote-with-newline.html');
+
+        const quoteContent = await newlineExamplePage.$eval("[id='34086365'] .quote", (e) => e.innerHTML);
+        expect(quoteContent).toMatch(/^For me the biggest problem/)
     })
 
     it('should initially hide the comment textarea', async () => {

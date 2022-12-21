@@ -171,11 +171,11 @@ const tampermonkeyScript = function() {
 
     let node = null;
     let nodes = [];
-    const ps = document.evaluate("//p[starts-with(., '>')]", document.body)
+    const ps = document.evaluate("//p[starts-with(normalize-space(text()), '>')]", document.body)
     while (node = ps.iterateNext()) {
         nodes.push(node);
     }
-    const spans = document.evaluate("//span[starts-with(., '>')]", document.body)
+    const spans = document.evaluate("//span[starts-with(normalize-space(text()), '>')]", document.body)
     while (node = spans.iterateNext()) {
         nodes.push(node);
     }
@@ -186,10 +186,10 @@ const tampermonkeyScript = function() {
             p.classList.add('quote');
             if (textNode.data.trim() === ">") {
                 const quotedContent = textNode.nextSibling;
-                p.innerText = quotedContent.innerHTML;
+                p.innerText = quotedContent.innerHTML.trim();
                 quotedContent.remove();
             } else {
-                p.innerText = textNode.data.replace(">", "");
+                p.innerText = textNode.data.replace(">", "").trim();
             }
             n.firstChild.replaceWith(p);
         } else {
