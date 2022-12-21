@@ -45,8 +45,8 @@ describe('https://news.ycombinator.com/item', () => {
         let parentId = "[id='34011652']";
         const newHtml = await newItempage.$eval(`${parentId} .quote`, (e) => e.innerHTML);
         const oldHtml = await page.$eval(`${parentId} .commtext`, (e) => e.firstChild.data);
-        expect(oldHtml).toEqual(expect.stringMatching('^>'));
-        expect(newHtml).toEqual(expect.not.stringMatching('^>'));
+        expect(oldHtml).toMatch(/^>/);
+        expect(newHtml).not.toMatch(/^>/);
     })
 
     it('should format quotes when text starts with a >', async () => {
