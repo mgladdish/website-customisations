@@ -21,6 +21,12 @@ exports.loadWithAndWithoutUserscript = async (pageWithScript, pageWithoutScript,
     await this.injectTampermonkeyScript(pageWithScript);
 }
 
+exports.loadPageWithUserscript = async (page, htmlFilenameToLoad) => {
+    const htmlFilename = path.resolve(__dirname, `../${htmlFilenameToLoad}`);
+    await page.goto(`file://${htmlFilename}`);
+    await this.injectTampermonkeyScript(page);
+}
+
 exports.isElementHidden = (page, selector) => {
     return page.$eval(selector, (e) => e.offsetParent === null);
 }

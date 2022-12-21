@@ -58,6 +58,15 @@ describe('https://news.ycombinator.com/item', () => {
         expect(quoteBackgroundColour).toMatch('rgba(255, 102, 0, 0.05)');
     })
 
+    it('should handle when quotes are italicised by the poster', async() => {
+        const singleItemPage = await browser.newPage();
+        await common.loadPageWithUserscript(singleItemPage, 'resources/item-singlecomment.html');
+
+        let selector = "[id='34072393'] .quote";
+        const quoteContent = await singleItemPage.$eval(selector, (e) => e.innerHTML);
+        expect(quoteContent).toMatch("The estimates seem a bit high, or perhaps unbalanced from book to book. The Count of Monte Cristo is slated for 208 days at twenty minutes per day!")
+    })
+
     it('should initially hide the comment textarea', async () => {
         const textAreaIsHidden = await common.isElementHidden(newItempage, "textarea[name='text']");
         expect(textAreaIsHidden).toBe(true);

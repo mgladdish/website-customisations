@@ -181,7 +181,13 @@ const tampermonkeyScript = function() {
         if (textNode) {
             const p = document.createElement('p');
             p.classList.add('quote');
-            p.innerText = textNode.data.replace(">", "");
+            if (textNode.data.trim() === ">") {
+                const quotedContent = textNode.nextSibling;
+                p.innerText = quotedContent.innerHTML;
+                quotedContent.remove();
+            } else {
+                p.innerText = textNode.data.replace(">", "");
+            }
             n.firstChild.replaceWith(p);
         } else {
             n.classList.add('quote');
