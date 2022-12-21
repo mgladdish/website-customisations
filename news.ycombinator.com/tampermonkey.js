@@ -41,13 +41,16 @@ const tampermonkeyScript = function() {
         font-size: 1rem;
       }
 
-      .votelinks, html[op='news'] .title {
+      html[op='news'] .title,
+      .votelinks, 
+      .fatitem .title+.votelinks {
         vertical-align: inherit;
       }
       
       .comment-tree .votelinks,
-        html[op='threads'] .votelinks,
-        html[op='newcomments'] .votelinks{
+      html[op='threads'] .votelinks,
+      html[op='item'] .votelinks,
+      xhtml[op='newcomments'] .votelinks{
         vertical-align: top;
       }
 
