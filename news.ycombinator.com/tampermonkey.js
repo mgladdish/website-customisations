@@ -169,16 +169,20 @@ const tampermonkeyScript = function() {
         }
     });
 
-    let node = null;
     let nodes = [];
-    const ps = document.evaluate("//p[starts-with(normalize-space(text()), '>')]", document.body)
-    while (node = ps.iterateNext()) {
-        nodes.push(node);
+
+    function findElementContentsStartingWithQuoteChar(elementNames, nodes) {
+        let node = null;
+        elementNames.forEach(elementName => {
+            const es = document.evaluate(`//${elementName}[starts-with(normalize-space(text()), '>')]`, document.body);
+            while (node = es.iterateNext()) {
+                nodes.push(node);
+            }
+        })
     }
-    const spans = document.evaluate("//span[starts-with(normalize-space(text()), '>')]", document.body)
-    while (node = spans.iterateNext()) {
-        nodes.push(node);
-    }
+
+    findElementContentsStartingWithQuoteChar(['i', 'p', 'span'], nodes);
+
     nodes.forEach((n) => {
         const textNode = Array.from(n.childNodes).find((n) => n.nodeType === Node.TEXT_NODE);
         if (textNode) {

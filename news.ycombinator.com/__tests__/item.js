@@ -74,6 +74,14 @@ describe('https://news.ycombinator.com/item', () => {
         expect(quoteContent).toMatch(/^For me the biggest problem/)
     })
 
+    it('should handle when quote indicator and body are all within an italic tag', async () => {
+        const italicQuotePage = await browser.newPage();
+        await common.loadPageWithUserscript(italicQuotePage, 'resources/item-quote-in-italics.html');
+
+        const quoteContent = await italicQuotePage.$eval("[id='34079845'] .quote", (e) => e.innerHTML);
+        expect(quoteContent).toMatch(/^Freeform is an all-new app/);
+    })
+
     it('should initially hide the comment textarea', async () => {
         const textAreaIsHidden = await common.isElementHidden(newItempage, "textarea[name='text']");
         expect(textAreaIsHidden).toBe(true);
