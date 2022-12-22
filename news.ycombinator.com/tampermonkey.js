@@ -123,7 +123,7 @@ const tampermonkeyScript = function() {
         border: 2px solid var(--colour-hn-orange);
         border-radius: var(--border-radius);
       }
-      input[type='button'] {
+      input[type='button'], input[type='submit'] {
         cursor: pointer;
       }   
 
