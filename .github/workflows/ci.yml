@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/ci.yml'
       - 'news.ycombinator.com/**'
+      - '!**/README.md'
 
 defaults:
   run:
