@@ -7,7 +7,9 @@ A userscript to make reading Hacker News more bearable.
 This isn't an attempt to make Hacker News into something it isn't, or even fix up the html to make it accessible or play nicely with reader mode. 
 It's just a tweak of the exising site, trying to keep the feel as close to the original as possible whilst fixing the biggest annoyances that make it hard to use and read.
 
-Note: Originally built specifically as a TamperMonkey script, but it turns out because I've stayed away from TamperMonkey-specific js calls it looks like it works with any userscript extension. Which is nice. 
+Note: Originally built specifically as a TamperMonkey script, but it turns out because I've stayed away from TamperMonkey-specific js calls it looks like it works with any userscript extension. Which is nice.
+
+[HackerNews Discussion](https://news.ycombinator.com/item?id=34037462)
 
 ## Features
 
