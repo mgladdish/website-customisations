@@ -27,6 +27,13 @@ Note: Originally built specifically as a TamperMonkey script, but it turns out b
     * faint orange background
     * italicised text
 
+Fixing up some of these colours has fixed some of the worst accessibility failures of HN.
+
+* Quote colour contrast is 19.83:1
+* Downvoted colour contrast is now 19.26:1
+
+Both of these meet WCAG AAA.
+
 ## 'normal' Hacker News homepage
 ![Hacker News homepage before](docs/news-before.png)
 
