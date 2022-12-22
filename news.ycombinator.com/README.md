@@ -37,6 +37,17 @@ It's just a tweak of the exising site, trying to keep the feel as close to the o
 
 # How to install
 
+Available on [GreasyFork](https://greasyfork.org/en/scripts/456820-hacker-news).
+
+Works with:
+
+* UserScripts
+* TamperMonkey
+
+Probably more, but not tried.
+
+## Tampermonkey
+
 1. Install https://www.tampermonkey.net/
 2. Select 'create a new script' from tampermonkey's plugin
 3. Paste the raw contents of [tampermonkey.js](https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js) into the editor
