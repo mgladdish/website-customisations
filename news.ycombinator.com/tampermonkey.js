@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hacker News
 // @namespace    http://tampermonkey.net/
-// @version      30
+// @version      31
 // @description  Make Hacker News more legible
 // @author       Martin Gladdish
 // @downloadURL  https://raw.githubusercontent.com/mgladdish/website-customisations/main/news.ycombinator.com/tampermonkey.js
