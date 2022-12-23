@@ -107,8 +107,11 @@ const tampermonkeyScript = function() {
       .comment, .toptext {
         max-width: 40em;
       }
-      .toptext, a, a:visited {
+      .toptext, a {
         color: black;
+      }
+      a:visited {
+        color: #4c2c92;
       }
       a:hover {
         text-decoration: underline;
